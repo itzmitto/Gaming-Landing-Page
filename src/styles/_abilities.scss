@@ -1,0 +1,246 @@
+#app.abilities-site {
+  min-height: 100vh;
+  color: #edece8;
+  background: #151819;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.abilities-navbar {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px clamp(20px, 5vw, 76px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: #111415;
+
+  nav {
+    display: flex;
+    gap: 28px;
+  }
+
+  nav a,
+  .abilities-return {
+    color: #d5d3cd;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: #f07857;
+  }
+}
+
+.abilities-brand {
+  display: grid;
+  gap: 3px;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  small {
+    color: #f07857;
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+}
+
+.abilities-main {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 52px clamp(20px, 5vw, 76px) 0;
+}
+
+.abilities-intro {
+  margin-bottom: 30px;
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    margin-bottom: 9px;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+}
+
+.abilities-layout {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.72fr) minmax(0, 2fr);
+  gap: 28px;
+}
+
+.abilities-sidebar,
+.ability-profile {
+  min-width: 0;
+}
+
+.abilities-search,
+.abilities-filter {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 15px;
+  color: #b4b3ae;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.abilities-search input,
+.abilities-filter select {
+  min-width: 0;
+  height: 43px;
+  padding: 0 12px;
+  border: 1px solid #45494a;
+  color: #fff;
+  background: #202526;
+  font: inherit;
+  text-transform: none;
+}
+
+.abilities-selector {
+  max-height: 660px;
+  overflow: auto;
+  border-top: 1px solid #363a3b;
+}
+
+.ability-legend-option {
+  width: 100%;
+  min-height: 43px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 0;
+  border-bottom: 1px solid #363a3b;
+  color: #e8e7e2;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ability-legend-option.selected,
+.ability-legend-option:hover,
+.ability-legend-option:focus-visible {
+  color: #fff;
+  background: #292e2f;
+}
+
+.ability-legend-option.selected {
+  box-shadow: inset 3px 0 #f07857;
+}
+
+.ability-option-class,
+.ability-option-arrow {
+  margin-left: auto;
+  color: #a5a5a0;
+  font-size: 9px;
+}
+
+.ability-profile-header {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 25px;
+}
+
+.ability-portrait {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  background: #742a2d;
+}
+
+.ability-portrait-backdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.13),
+    transparent 62%
+  );
+}
+
+.ability-portrait img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.ability-portrait-index {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  color: #fff;
+  font-size: 9px;
+}
+
+.ability-identity h2 {
+  margin: 5px 0;
+  font-size: clamp(38px, 5vw, 70px);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.abilities-kicker,
+.ability-role {
+  color: #f07857;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.ability-description {
+  color: #c1c0bb;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .abilities-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .abilities-selector {
+    max-height: 240px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .abilities-navbar nav {
+    display: none;
+  }
+
+  .abilities-main {
+    padding-top: 34px;
+  }
+
+  .abilities-selector {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ability-profile-header {
+    grid-template-columns: 1fr;
+  }
+
+  .ability-portrait {
+    height: min(90vw, 400px);
+  }
+
+  .abilities-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
