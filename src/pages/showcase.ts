@@ -23,13 +23,13 @@ export function renderShowcase(app: HTMLDivElement): void {
   app.innerHTML = `
     <header class="navbar">
       <a class="brand" href="#home" aria-label="Legend Showcase home">
-        <span class="brand-mark">APEX</span>
-        <span class="brand-caption">LEGENDS</span>
+        <span class="brand-mark">OUTLANDS</span>
+        <span class="brand-caption">FAN FIELD GUIDE</span>
       </a>
       <nav aria-label="Main navigation">
-        <a class="nav-link active" href="#legends">Legends</a>
+        <a class="nav-link active" href="#legends" aria-current="page">Legends</a>
         <a class="nav-link abilities-nav-link" href="/abilities/">Abilities</a>
-        <a class="nav-link" href="https://www.ea.com/games/apex-legends/apex-legends" target="_blank" rel="noreferrer">Discover <span aria-hidden="true">↗</span></a>
+        <a class="nav-link" href="/official-inspired/">Field Guide</a>
       </nav>
       <a
         class="mobile-abilities-link abilities-nav-link"
@@ -45,7 +45,7 @@ export function renderShowcase(app: HTMLDivElement): void {
         Explore Official-Inspired Page <span aria-hidden="true">→</span>
       </a>
     </header>
-    <main id="home" class="showcase" aria-live="polite">
+    <main id="home" class="showcase">
       <div class="backdrop" aria-hidden="true">
         <div class="backdrop-stripe"></div>
         <div class="backdrop-grid"></div>
@@ -56,7 +56,7 @@ export function renderShowcase(app: HTMLDivElement): void {
         <div class="identity">
           <div class="legend-index" id="legend-index"></div>
           <p class="role-label" id="legend-class"></p>
-          <h1 id="legend-name"></h1>
+          <h1 id="legend-name" aria-live="polite"></h1>
           <p class="legend-role" id="legend-role"></p>
           <a class="story-link abilities-nav-link" href="/abilities/?legend=bloodhound">
             EXPLORE ABILITIES <span aria-hidden="true">↗</span>
@@ -109,8 +109,18 @@ export function renderShowcase(app: HTMLDivElement): void {
         <div class="legend-selector" role="group" aria-label="Choose a Legend" id="legend-selector"></div>
         <p class="roster-empty" id="roster-empty" hidden>No Legends match those filters.</p>
       </section>
-      <p class="legal-note">This project is not endorsed by or affiliated with EA or its licensors.</p>
     </main>
+    <footer class="showcase-footer">
+      <p class="legal-note">
+        Fan-made project, not endorsed by or affiliated with EA or its licensors.
+      </p>
+      <nav aria-label="Explore this fan project">
+        <a href="/">Legend Showcase</a>
+        <a href="/abilities/">Legend Abilities</a>
+        <a href="/official-inspired/">Official-inspired Field Guide</a>
+        <a href="https://help.ea.com/en/articles/apex-legends/abilities/" target="_blank" rel="noreferrer">EA ability guide</a>
+      </nav>
+    </footer>
   `;
 
   const selector = app.querySelector<HTMLDivElement>('#legend-selector')!;
@@ -123,8 +133,7 @@ export function renderShowcase(app: HTMLDivElement): void {
     legends.find((legend) => legend.id === requestedLegend) ??
     legends.find((legend) => legend.id === 'bloodhound') ??
     legends[0];
-
-  function renderLegend(legend: Legend): void {
+  function renderLegend(legend: Legend, updateHistory = true): void {
     const index = legends.indexOf(legend);
     document.documentElement.dataset.legend = legend.id;
     document.documentElement.style.setProperty('--accent', legend.accent);
@@ -147,6 +156,13 @@ export function renderShowcase(app: HTMLDivElement): void {
     document.querySelector('#legend-description')!.textContent =
       legend.description;
 
+    app
+      .querySelectorAll<HTMLElement>('.identity, .details')
+      .forEach((panel) => {
+        panel.classList.remove('legend-swap');
+        requestAnimationFrame(() => panel.classList.add('legend-swap'));
+      });
+
     const image = document.querySelector<HTMLImageElement>('#legend-image')!;
     image.src = legend.image;
     image.alt = `${legend.name} — official character artwork`;
@@ -163,9 +179,6 @@ export function renderShowcase(app: HTMLDivElement): void {
               <h3>${escapeHtml(ability.name)}</h3>
               <p>${escapeHtml(ability.detail)}</p>
             </div>
-            <span class="ability-symbol" aria-hidden="true">
-              ${['⌖', '◉', '✳'][abilityIndex]}
-            </span>
           </article>
         `,
       )
@@ -178,6 +191,10 @@ export function renderShowcase(app: HTMLDivElement): void {
         button.classList.toggle('selected', active);
         button.setAttribute('aria-pressed', String(active));
       });
+
+    if (updateHistory) {
+      window.history.pushState(null, '', `/?legend=${legend.id}`);
+    }
   }
 
   function renderOptions(): void {
@@ -234,6 +251,11 @@ export function renderShowcase(app: HTMLDivElement): void {
 
   search.addEventListener('input', renderOptions);
   classFilter.addEventListener('change', renderOptions);
+  window.addEventListener('popstate', () => {
+    const id = new URLSearchParams(window.location.search).get('legend');
+    const legend = legends.find((item) => item.id === id);
+    if (legend) renderLegend(legend, false);
+  });
   renderOptions();
-  renderLegend(selectedLegend);
+  renderLegend(selectedLegend, false);
 }

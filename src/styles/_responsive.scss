@@ -161,6 +161,7 @@
     margin-bottom: 12px;
   }
   .ability {
+    grid-template-columns: 20px 1fr;
     padding: 11px 0;
   }
   .ability p {
@@ -168,6 +169,15 @@
   }
   .legal-note {
     font-size: 7px;
-    padding-bottom: 9px;
+  }
+  .showcase-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+
+    nav {
+      gap: 10px 16px;
+    }
   }
 }
