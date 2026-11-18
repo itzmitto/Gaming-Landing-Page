@@ -15,12 +15,12 @@
 }
 
 .abilities-navbar {
-  min-height: 76px;
+  min-height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 12px clamp(20px, 5vw, 76px);
+  padding: 12px var(--page-gutter);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   background: #111415;
 
@@ -32,13 +32,26 @@
   nav a,
   .abilities-return {
     color: #d5d3cd;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
+    letter-spacing: 1px;
     text-transform: uppercase;
+    transition:
+      color var(--duration-fast),
+      transform var(--duration-fast) var(--ease-out);
   }
 
   a:hover,
   a:focus-visible {
+    color: var(--accent);
+  }
+
+  nav a:hover,
+  .abilities-return:hover {
+    transform: translateY(-1px);
+  }
+
+  nav a[aria-current='page'] {
     color: var(--accent);
   }
 }
@@ -48,7 +61,7 @@
   gap: 3px;
   font-size: 17px;
   font-weight: 900;
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
 
   small {
     color: var(--accent);

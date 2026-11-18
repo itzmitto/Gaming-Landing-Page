@@ -1,17 +1,17 @@
 .navbar {
-  height: 88px;
-  padding: 0 clamp(24px, 6vw, 96px);
+  min-height: 72px;
+  padding: 0 var(--page-gutter);
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  z-index: 10;
+  z-index: var(--z-navigation);
   border-bottom: 1px solid rgba(30, 30, 30, 0.08);
   nav {
     display: flex;
     align-items: center;
-    gap: clamp(24px, 4vw, 58px);
-    margin-left: 50px;
+    gap: clamp(20px, 3vw, 44px);
+    margin-left: clamp(20px, 3vw, 50px);
   }
 }
 .brand {
@@ -36,11 +36,12 @@
 }
 .nav-link {
   font-family: var(--font-display);
-  color: #555;
-  font-size: 11px;
+  position: relative;
+  color: #4c4b49;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1.3px;
-  transition: color 0.2s;
+  transition: color var(--duration-fast);
   &:hover,
   &.active {
     color: var(--accent);
@@ -49,22 +50,48 @@
     font-size: 14px;
     margin-left: 3px;
   }
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 2px;
+    content: '';
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  &:hover::after,
+  &.active::after,
+  &[aria-current='page']::after {
+    transform: scaleX(1);
+  }
 }
 .page-switch {
   font-family: var(--font-display);
   display: inline-flex;
   gap: 14px;
   align-items: center;
-  padding: 13px 19px;
+  min-height: 46px;
+  padding: 12px 19px;
+  border-radius: var(--radius-sm);
   color: #fff;
   background: var(--accent);
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 1.3px;
   text-transform: uppercase;
-  transition: background 0.25s;
+  transition:
+    background var(--duration-fast),
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast);
   &:hover {
     background: var(--accent-dark);
+    box-shadow: 0 8px 18px color-mix(in srgb, var(--accent) 24%, transparent);
+    transform: translateY(-2px);
   }
   span {
     font-size: 14px;
