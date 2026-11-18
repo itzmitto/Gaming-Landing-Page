@@ -70,13 +70,13 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
       </section>
 
       <section class="official-feature-section" id="features">
-        <div class="official-section-heading">
+        <div class="official-section-heading" data-reveal>
           <p class="official-kicker">THE APEX GAMES</p>
           <h2>Find your way<br />into the fight.</h2>
           <p>Build a squad, choose a role, and learn the arenas that shape every match.</p>
         </div>
         <div class="official-feature-grid">
-          <article class="official-feature-card official-feature-card-wide">
+          <article class="official-feature-card official-feature-card-wide" data-reveal>
             <img
               src="/images/feature-legends.png"
               alt="A squad of Apex Legends gathered in the arena"
@@ -89,7 +89,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
               <p>Every Legend brings a different skill set to the team.</p>
             </div>
           </article>
-          <article class="official-feature-card">
+          <article class="official-feature-card" data-reveal>
             <img
               src="/images/feature-modes.png"
               alt="Legends facing a glowing portal in the Outlands"
@@ -102,7 +102,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
               <p>Battle Royale, limited-time modes, and new ways to play.</p>
             </div>
           </article>
-          <article class="official-feature-card">
+          <article class="official-feature-card" data-reveal>
             <img
               src="/images/feature-lore.jpg"
               alt="A Legend exploring an icy frontier outpost"
@@ -119,7 +119,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
       </section>
 
       <section class="official-video-section" id="trailer">
-        <div class="official-video-copy">
+        <div class="official-video-copy" data-reveal>
           <p class="official-kicker">SEASON 31 · GAMEPLAY TRAILER</p>
           <h2>Hack the fight.</h2>
           <p>
@@ -135,7 +135,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
             Cipher game updates <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <div class="official-video-frame">
+        <div class="official-video-frame" data-reveal>
           <iframe
             src="https://www.youtube-nocookie.com/embed/yQ9LVy4DR9U?rel=0"
             title="Apex Legends: Cipher Gameplay Trailer"
@@ -148,7 +148,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
       </section>
 
       <section class="official-legends-section" id="featured-legends">
-        <div class="official-section-heading official-section-heading-row">
+        <div class="official-section-heading official-section-heading-row" data-reveal>
           <div>
             <p class="official-kicker">28 PLAYABLE LEGENDS</p>
             <h2>Choose your Legend.</h2>
@@ -161,7 +161,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
           ${featuredLegends
             .map(
               (legend, index) => `
-                <a class="official-legend-card" href="/#roster">
+                <a class="official-legend-card" href="/#roster" data-reveal>
                   <img
                     src="${legend.image}"
                     alt="${legend.name} character artwork"
@@ -197,7 +197,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
             decoding="async"
           />
         </picture>
-        <div class="official-map-copy">
+        <div class="official-map-copy" data-reveal>
           <p class="official-kicker">SIX ARENAS · MANY WAYS THROUGH</p>
           <h2>Know the ground.<br />Change the game.</h2>
           <p>
@@ -225,7 +225,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
       </section>
 
       <section class="official-news-section" id="news">
-        <div class="official-section-heading official-section-heading-row">
+        <div class="official-section-heading official-section-heading-row" data-reveal>
           <div>
             <p class="official-kicker">LATEST DISPATCHES</p>
             <h2>From the Outlands.</h2>
@@ -242,6 +242,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
         <div class="official-news-list">
           <a
             class="official-news-item"
+            data-reveal
             href="https://www.ea.com/games/apex-legends/apex-legends/news/cipher-patch-notes"
             target="_blank"
             rel="noreferrer"
@@ -253,6 +254,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
           </a>
           <a
             class="official-news-item"
+            data-reveal
             href="https://www.ea.com/games/apex-legends/apex-legends/news/ranked-roadmap-31-32"
             target="_blank"
             rel="noreferrer"
@@ -264,6 +266,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
           </a>
           <a
             class="official-news-item"
+            data-reveal
             href="https://www.ea.com/games/apex-legends/apex-legends/news/blood-pact-event"
             target="_blank"
             rel="noreferrer"
@@ -289,4 +292,56 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
       <a class="official-footer-return" href="/">Back to Legend Showcase ↑</a>
     </footer>
   `;
+
+  const navLinks = Array.from(
+    app.querySelectorAll<HTMLAnchorElement>('.official-navbar nav a'),
+  );
+  const revealTargets = Array.from(
+    app.querySelectorAll<HTMLElement>('[data-reveal]'),
+  );
+
+  if (!('IntersectionObserver' in window)) return;
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+  );
+
+  revealTargets.forEach((target, index) => {
+    target.classList.add('official-reveal');
+    target.style.setProperty('--reveal-delay', `${(index % 4) * 70}ms`);
+    revealObserver.observe(target);
+  });
+
+  const sections = navLinks
+    .map((link) => app.querySelector<HTMLElement>(link.hash))
+    .filter((section): section is HTMLElement => section !== null);
+  const navigationObserver = new IntersectionObserver(
+    (entries) => {
+      const currentSection = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort(
+          (first, second) =>
+            first.boundingClientRect.top - second.boundingClientRect.top,
+        )[0]?.target.id;
+
+      if (!currentSection) return;
+
+      navLinks.forEach((link) => {
+        const active = link.hash === `#${currentSection}`;
+        link.classList.toggle('is-current', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    },
+    { rootMargin: '-20% 0px -65% 0px', threshold: 0 },
+  );
+
+  sections.forEach((section) => navigationObserver.observe(section));
 }

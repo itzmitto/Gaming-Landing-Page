@@ -36,6 +36,7 @@
     gap: clamp(20px, 3.6vw, 54px);
 
     a {
+      position: relative;
       color: #d1d0cb;
       font-size: 10px;
       font-weight: 800;
@@ -43,9 +44,29 @@
       text-transform: uppercase;
       transition: color 0.2s;
 
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: -9px;
+        left: 0;
+        height: 2px;
+        content: '';
+        background: #e3694b;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.2s ease;
+      }
+
       &:hover,
-      &:focus-visible {
+      &:focus-visible,
+      &.is-current {
         color: #fff;
+      }
+
+      &:hover::after,
+      &:focus-visible::after,
+      &.is-current::after {
+        transform: scaleX(1);
       }
     }
   }
@@ -662,6 +683,19 @@
   font-size: 8px;
   font-weight: 800;
   letter-spacing: 1px;
+}
+
+.official-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.55s ease var(--reveal-delay, 0ms),
+    transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+}
+
+.official-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .official-footer {
