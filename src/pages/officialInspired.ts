@@ -30,6 +30,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
         <a href="#abilities-preview">Abilities</a>
         <a href="#maps">Maps</a>
         <a href="#news">News</a>
+        <a href="#download">Play</a>
       </nav>
       <a class="showcase-return" href="/">Legend Showcase <span aria-hidden="true">↗</span></a>
     </header>
@@ -315,6 +316,19 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
             <strong>Fight for Beasts or Demons in the Blood Pact Event</strong>
             <span aria-hidden="true">↗</span>
           </a>
+        </div>
+      </section>
+
+      <section class="official-download-section" id="download">
+        <div data-reveal>
+          <p class="official-kicker">THE GAMES ARE WAITING</p>
+          <h2>Ready to drop?</h2>
+          <p>Apex Legends is free to play. Choose a store to visit the official listing.</p>
+        </div>
+        <div class="official-download-actions" data-reveal>
+          <a class="official-button official-button-primary" href="https://www.ea.com/games/apex-legends/apex-legends/buy/checkout?platform=EA-APP" target="_blank" rel="noreferrer">Play on EA app <span aria-hidden="true">↗</span></a>
+          <a class="official-button official-button-outline" href="https://lnk.to/apex-legends-steam" target="_blank" rel="noreferrer">Get it on Steam <span aria-hidden="true">↗</span></a>
+          <a class="official-button official-button-outline" href="https://store.epicgames.com/p/apex-legends-006cde" target="_blank" rel="noreferrer">Visit Epic Games Store <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
