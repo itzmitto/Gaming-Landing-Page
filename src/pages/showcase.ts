@@ -66,7 +66,13 @@ export function renderShowcase(app: HTMLDivElement): void {
           <div class="stage-ring"></div>
           <div class="stage-dash"></div>
           <div class="image-shadow"></div>
-          <img class="character-image" id="legend-image" alt="" />
+          <img
+            class="character-image"
+            id="legend-image"
+            alt=""
+            fetchpriority="high"
+            decoding="async"
+          />
           <span class="image-note">OFFICIAL EA<br />CHARACTER ART</span>
         </div>
         <div class="details" id="abilities">

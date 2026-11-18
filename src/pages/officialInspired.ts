@@ -33,7 +33,21 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
 
     <main class="official-main">
       <section class="official-hero" aria-labelledby="official-hero-title">
-        <div class="official-hero-image" aria-hidden="true"></div>
+        <picture class="official-hero-image" aria-hidden="true">
+          <source
+            media="(max-width: 640px)"
+            srcset="/images/official-hero-mobile.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/official-hero.jpg"
+            alt=""
+            width="3840"
+            height="2160"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
         <div class="official-hero-content">
           <p class="official-kicker">A FAN-MADE FIELD GUIDE TO THE OUTLANDS</p>
           <h1 id="official-hero-title">Drop into<br />the Outlands.</h1>
@@ -66,6 +80,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
               src="/images/feature-legends.png"
               alt="A squad of Apex Legends gathered in the arena"
               loading="lazy"
+              decoding="async"
             />
             <div>
               <span class="official-card-label">01 · THE SQUAD</span>
@@ -78,6 +93,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
               src="/images/feature-modes.png"
               alt="Legends facing a glowing portal in the Outlands"
               loading="lazy"
+              decoding="async"
             />
             <div>
               <span class="official-card-label">02 · GAME MODES</span>
@@ -90,6 +106,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
               src="/images/feature-lore.jpg"
               alt="A Legend exploring an icy frontier outpost"
               loading="lazy"
+              decoding="async"
             />
             <div>
               <span class="official-card-label">03 · THE FRONTIER</span>
@@ -119,6 +136,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
                     src="${legend.image}"
                     alt="${legend.name} character artwork"
                     loading="lazy"
+                    decoding="async"
                   />
                   <span class="official-legend-number">0${index + 1}</span>
                   <span class="official-legend-copy">
@@ -134,7 +152,21 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
       </section>
 
       <section class="official-maps-section" id="maps">
-        <div class="official-map-image" aria-hidden="true"></div>
+        <picture class="official-map-image" aria-hidden="true">
+          <source
+            media="(max-width: 640px)"
+            srcset="/images/map-e-district-mobile.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/map-e-district.jpg"
+            alt=""
+            width="4800"
+            height="1500"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
         <div class="official-map-copy">
           <p class="official-kicker">SIX ARENAS · MANY WAYS THROUGH</p>
           <h2>Know the ground.<br />Change the game.</h2>
