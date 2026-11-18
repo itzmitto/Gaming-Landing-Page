@@ -1,23 +1,29 @@
-# Apex Legends fan-made landingpage
+# Apex Legends fan-made showcase
 
-Dit project is een interactieve, fan-made showcase voor vier Apex Legends:
-Bloodhound, Octane, Wraith en Mirage.
+Een interactieve Apex Legends-fansite met een Legend-showcase en een tweede
+pagina die qua opbouw is geïnspireerd op de officiële Apex-site. De HTML en
+styling zijn zelfstandig geschreven; dit zijn geen officiële EA-pagina’s.
 
 > This project is not endorsed by or affiliated with EA or its licensors.
 
 ## Functionaliteit
 
-- Responsive hero-layout met een verticale accentstrook en gelaagde character-art.
-- Legend-selector die portret, rol, beschrijving, abilities en accentkleur bijwerkt.
-- Navigatie, subtiele overgangen en ondersteuning voor verminderde beweging.
-- Lokale character-afbeeldingen in `public/images/`.
+- Bekijk alle 28 Legends uit de Characters Hub van EA, inclusief klasse, rol,
+  korte beschrijving en tactical, passive en ultimate abilities.
+- Zoek in de roster op naam, rol of klasse en filter op klasse.
+- Selecteer een Legend om de afbeelding, inhoud en accentkleur te wijzigen.
+- Bekijk `/official-inspired/` met gamefuncties, Legends, maps en links naar
+  actueel officieel nieuws.
+- Navigeer tussen de showcase en de tweede pagina.
+- Responsive layouts voor desktop en mobiel, gelaagde afbeeldingen, subtiele
+  overgangen, toetsenbordfocus en ondersteuning voor verminderde beweging.
 
 ## Technieken
 
-- Vite voor de lokale ontwikkelserver en productiebuild.
-- TypeScript voor de selector en Legend-inhoud.
-- HTML voor de documentstructuur en semantische componenten.
-- SCSS, opgesplitst in variabelen, navigatie, hero, animaties en responsive styling.
+- Vite voor lokale ontwikkeling en productiebuilds.
+- TypeScript voor de centrale Legend-gegevens en interactieve functies.
+- HTML-templates voor de semantische pagina-inhoud.
+- SCSS voor layouts, afbeeldingslagen, overgangen en responsive styling.
 
 Er wordt geen React, Tailwind of ander groot framework gebruikt.
 
@@ -26,50 +32,88 @@ Er wordt geen React, Tailwind of ander groot framework gebruikt.
 ```text
 .
 ├── public/
-│   └── images/             # Lokale character-renders van EA
+│   └── images/                 # Lokaal opgeslagen artwork van EA
 ├── src/
-│   ├── main.ts             # Pagina-opbouw en Legend-selector
-│   ├── style.scss          # SCSS-entrypoint
-│   └── styles/
-│       ├── _animations.scss
-│       ├── _hero.scss
-│       ├── _navigation.scss
-│       ├── _responsive.scss
-│       └── _variables.scss
+│   ├── data/
+│   │   ├── legends/            # Legend-data per klasse
+│   │   ├── legendBuilder.ts    # Gedeelde Legend-builder
+│   │   ├── legends.ts          # Centrale, gesorteerde Legend-lijst
+│   │   └── types.ts            # Types voor Legends en abilities
+│   ├── pages/
+│   │   ├── showcase.ts         # Showcase en interactieve selector
+│   │   └── officialInspired.ts # Tweede fan-made pagina
+│   ├── styles/
+│   │   ├── _animations.scss
+│   │   ├── _hero.scss
+│   │   ├── _navigation.scss
+│   │   ├── _official.scss
+│   │   ├── _responsive.scss
+│   │   ├── _roster.scss
+│   │   └── _variables.scss
+│   ├── main.ts                 # Selecteert de pagina op basis van de URL
+│   └── style.scss              # SCSS-entrypoint
 ├── index.html
 ├── package.json
 └── README.md
 ```
 
-## Afbeeldingsbronnen en gebruik
+## Bronnen van Legend-afbeeldingen
 
-De vier PNG-renders zijn afkomstig van de officiële EA Apex Legends-
-characterpagina's. De oorspronkelijke bestanden zijn transparante PNG's; de
-overtollige transparante randen zijn lokaal bijgesneden om de personages groter
-in de hero te tonen.
+Alle 28 character-renders zijn gedownload van de officiële Apex Legends-
+profielpagina’s van EA en lokaal opgeslagen in `public/images/`. De
+transparante PNG-bronbestanden waren 1120 × 630 pixels. De transparante randen
+zijn lokaal bijgesneden zonder de afbeeldingen te herschalen of vergroten. De
+renders zijn daardoor kleiner dan 1080 pixels hoog; EA bood geen grotere
+profielbestanden aan. De oorspronkelijke pixelgegevens zijn behouden.
 
-| Lokaal bestand                 | Officiële EA-bron                                                                                                                                                                                                                            |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `public/images/bloodhound.png` | [Bloodhound](https://drop-assets.ea.com/images/74yW8P5W3TW2rYgivzDNZi/5a33b4a103c723f5592eae941b2ceaf8/Apex-Legends_Bloodhound-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/bloodhound) |
-| `public/images/octane.png`     | [Octane](https://drop-assets.ea.com/images/1jfSUKCMDTTuLX54SfhDyC/8804bffa5078a97fa4592e42d1f5fb74/Apex-Legends_Octane-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/octane)             |
-| `public/images/wraith.png`     | [Wraith](https://drop-assets.ea.com/images/55frFMnl3iqhxWEndIxQQZ/b894898ef2a40fb63aecdb1dc1dd06c5/Apex-Legends_Wraith-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/wraith)             |
-| `public/images/mirage.png`     | [Mirage](https://drop-assets.ea.com/images/6q5eXDp6PtGLdDxu0TBc4n/ec5526e8ceba0b817c55ad2725797c91/Apex-Legends_Mirage-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/mirage)             |
+| Lokaal bestand   | Officiële EA-profielpagina                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------ |
+| `alter.png`      | [Alter](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/alter)           |
+| `ash.png`        | [Ash](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/ash)               |
+| `axle.png`       | [Axle](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/axle)             |
+| `ballistic.png`  | [Ballistic](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/ballistic)   |
+| `bangalore.png`  | [Bangalore](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/bangalore)   |
+| `bloodhound.png` | [Bloodhound](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/bloodhound) |
+| `catalyst.png`   | [Catalyst](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/catalyst)     |
+| `caustic.png`    | [Caustic](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/caustic)       |
+| `conduit.png`    | [Conduit](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/conduit)       |
+| `crypto.png`     | [Crypto](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/crypto)         |
+| `fuse.png`       | [Fuse](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/fuse)             |
+| `gibraltar.png`  | [Gibraltar](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/gibraltar)   |
+| `horizon.png`    | [Horizon](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/horizon)       |
+| `lifeline.png`   | [Lifeline](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/lifeline)     |
+| `loba.png`       | [Loba](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/loba)             |
+| `mad-maggie.png` | [Mad Maggie](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/mad-maggie) |
+| `mirage.png`     | [Mirage](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/mirage)         |
+| `newcastle.png`  | [Newcastle](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/newcastle)   |
+| `octane.png`     | [Octane](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/octane)         |
+| `pathfinder.png` | [Pathfinder](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/pathfinder) |
+| `rampart.png`    | [Rampart](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/rampart)       |
+| `revenant.png`   | [Revenant](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/revenant)     |
+| `seer.png`       | [Seer](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/seer)             |
+| `sparrow.png`    | [Sparrow](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/sparrow)       |
+| `valkyrie.png`   | [Valkyrie](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/valkyrie)     |
+| `vantage.png`    | [Vantage](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/vantage)       |
+| `wattson.png`    | [Wattson](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/wattson)       |
+| `wraith.png`     | [Wraith](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/wraith)         |
+
+De tweede pagina gebruikt ook officieel Apex-artwork: `official-hero.jpg` van
+de [Apex Legends-homepage](https://www.ea.com/games/apex-legends/apex-legends),
+feature-artwork van EA’s Apex-site en `map-e-district.jpg` van de [officiële
+Maps Hub](https://www.ea.com/games/apex-legends/apex-legends/game-objects/maps-hub).
+Deze bestanden staan in `public/images/`. De pagina vermeldt EA als bron en
+toont duidelijk dat het om een fanproject gaat. Er zijn geen EA-accounts,
+inlogfuncties of aankopen beschikbaar.
 
 EA's [content policy](https://help.ea.com/en/articles/security-and-rules/ea-content-policy/)
-staat gebruik van game-content voor persoonlijke projecten, waaronder fan-
-sites, toe onder voorwaarden. Gebruik deze assets uitsluitend binnen die
-voorwaarden: maak het project niet-commercieel, wek geen indruk van officiële
-affiliatie en behoud de bovenstaande disclaimer. EA geeft geen toestemming
-voor eventueel in-game materiaal dat aan derden is gelicentieerd; gebruik van
-game-content blijft onder de EA-policy op eigen risico.
+staat persoonlijk gebruik van gamecontent in fanprojecten onder voorwaarden
+toe. Dit project is niet-commercieel, maakt duidelijk dat het niet officieel
+is en gebruikt materiaal van EA’s eigen Apex-site. De policy sluit materiaal
+uit dat EA van derden heeft gelicentieerd. Controleer de actuele voorwaarden
+voordat je het project publiceert of het gebruik aanpast. Al het artwork blijft
+eigendom van de respectieve rechthebbenden.
 
-## Screenshots
-
-De oorspronkelijke README vroeg om screenshots van de website. Die zijn nog
-niet toegevoegd; voeg ze hier toe nadat je de pagina lokaal hebt bekeken en de
-gewenste desktop- en mobiele weergaven hebt gekozen.
-
-## Lokaal ontwikkelen
+## Lokaal installeren en starten
 
 ### Installatie
 
@@ -97,3 +141,8 @@ npm run build
 ```sh
 npm run preview
 ```
+
+## Screenshots
+
+Screenshots zijn niet toegevoegd. In deze sessie was geen browser beschikbaar
+om desktop- en mobiele weergaven vast te leggen en te controleren.
