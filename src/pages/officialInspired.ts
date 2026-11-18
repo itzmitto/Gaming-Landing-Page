@@ -283,13 +283,13 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
           <a
             class="official-news-item"
             data-reveal
-            href="https://www.ea.com/games/apex-legends/apex-legends/news/cipher-patch-notes"
+            href="https://www.ea.com/games/apex-legends/apex-legends/news/godzilla-event"
             target="_blank"
             rel="noreferrer"
           >
-            <time datetime="2026-11-02">02 NOV 2026</time>
-            <span class="official-news-tag">PATCH NOTES</span>
-            <strong>Apex Legends: Cipher</strong>
+            <time datetime="2026-11-05">05 NOV 2026</time>
+            <span class="official-news-tag">GAME UPDATE</span>
+            <strong>Survive a Godzilla attack in the Apex Legends | Godzilla Event</strong>
             <span aria-hidden="true">↗</span>
           </a>
           <a
