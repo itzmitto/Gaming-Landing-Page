@@ -1,4 +1,5 @@
 import './style.scss';
+import { renderAbilities } from './pages/abilities';
 import { renderOfficialInspired } from './pages/officialInspired';
 import { renderShowcase } from './pages/showcase';
 
@@ -10,6 +11,8 @@ if (!app) {
 
 if (window.location.pathname.startsWith('/official-inspired')) {
   renderOfficialInspired(app);
+} else if (window.location.pathname.startsWith('/abilities')) {
+  renderAbilities(app);
 } else {
   renderShowcase(app);
 }
