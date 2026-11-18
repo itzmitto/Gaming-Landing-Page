@@ -60,6 +60,7 @@ en valt onder de SIL Open Font License 1.1. De licentie staat bij
 │   │   ├── showcase.ts         # Showcase en interactieve selector
 │   │   └── officialInspired.ts # Tweede fan-made pagina
 │   ├── styles/
+│   │   ├── _fonts.scss
 │   │   ├── _animations.scss
 │   │   ├── _abilities.scss
 │   │   ├── _abilities-cards.scss
