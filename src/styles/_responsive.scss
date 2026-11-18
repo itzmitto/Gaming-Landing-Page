@@ -41,19 +41,82 @@
   .navbar {
     height: 68px;
     padding-inline: 20px;
-    nav {
-      display: none;
+  }
+
+  .mobile-nav-toggle {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0;
+    border: 1px solid rgba(30, 30, 30, 0.2);
+    border-radius: var(--radius-sm);
+    color: var(--ink);
+    background: transparent;
+    cursor: pointer;
+
+    > span:not(.visually-hidden) {
+      width: 17px;
+      height: 2px;
+      background: currentColor;
+      transition:
+        transform var(--duration-fast),
+        background var(--duration-fast);
+    }
+
+    &[aria-expanded='true'] > span:first-child {
+      transform: translateY(4px) rotate(45deg);
+    }
+
+    &[aria-expanded='true'] > span:nth-child(2) {
+      transform: translateY(-4px) rotate(-45deg);
     }
   }
-  .mobile-abilities-link {
-    display: inline-flex;
-    align-items: center;
-    min-height: 40px;
-    color: #353534;
-    font-size: 8px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+
+  .navbar nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: var(--z-navigation);
+    display: grid;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 22px;
+    border-bottom: 0 solid rgba(30, 30, 30, 0.12);
+    background: var(--paper);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-7px);
+    transition:
+      max-height var(--duration-base) var(--ease-out),
+      opacity var(--duration-fast),
+      padding var(--duration-base),
+      transform var(--duration-fast),
+      visibility var(--duration-fast);
+  }
+
+  .navbar nav.is-open {
+    max-height: 210px;
+    padding-block: 10px;
+    border-bottom-width: 1px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navbar nav .nav-link {
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(30, 30, 30, 0.08);
+    font-size: 10px;
+  }
+
+  .navbar nav .nav-link:last-child {
+    border-bottom: 0;
   }
   .brand-mark {
     font-size: 23px;

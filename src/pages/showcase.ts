@@ -26,17 +26,20 @@ export function renderShowcase(app: HTMLDivElement): void {
         <span class="brand-mark">OUTLANDS</span>
         <span class="brand-caption">FAN FIELD GUIDE</span>
       </a>
-      <nav aria-label="Main navigation">
+      <nav id="showcase-navigation" aria-label="Main navigation">
         <a class="nav-link active" href="#legends" aria-current="page">Legends</a>
         <a class="nav-link abilities-nav-link" href="/abilities/">Abilities</a>
         <a class="nav-link" href="/official-inspired/">Field Guide</a>
       </nav>
-      <a
-        class="mobile-abilities-link abilities-nav-link"
-        href="/abilities/?legend=bloodhound"
+      <button
+        class="mobile-nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="showcase-navigation"
       >
-        Abilities
-      </a>
+        <span></span><span></span>
+        <span class="visually-hidden">Open navigation</span>
+      </button>
       <a
         class="page-switch"
         href="/official-inspired/"
@@ -126,6 +129,8 @@ export function renderShowcase(app: HTMLDivElement): void {
   const selector = app.querySelector<HTMLDivElement>('#legend-selector')!;
   const search = app.querySelector<HTMLInputElement>('#legend-search')!;
   const classFilter = app.querySelector<HTMLSelectElement>('#class-filter')!;
+  const navToggle = app.querySelector<HTMLButtonElement>('.mobile-nav-toggle')!;
+  const navigation = app.querySelector<HTMLElement>('#showcase-navigation')!;
   const requestedLegend = new URLSearchParams(window.location.search).get(
     'legend',
   );
@@ -250,6 +255,23 @@ export function renderShowcase(app: HTMLDivElement): void {
     );
     const legend = legends.find((item) => item.id === button?.dataset.legend);
     if (legend) renderLegend(legend);
+  });
+
+  function closeMobileNavigation(): void {
+    navToggle.setAttribute('aria-expanded', 'false');
+    navigation.classList.remove('is-open');
+  }
+
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+    navigation.classList.toggle('is-open', !expanded);
+  });
+  navigation.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a')) closeMobileNavigation();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMobileNavigation();
   });
 
   search.addEventListener('input', renderOptions);
