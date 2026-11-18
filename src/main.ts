@@ -69,8 +69,8 @@ app.innerHTML = `
       <div class="character-stage" aria-label="Legend artwork">
         <div class="stage-ring"></div><div class="stage-dash"></div>
         <div class="image-shadow"></div>
-        <img class="character-image" id="legend-image" src="/images/bloodhound.svg" alt="Bloodhound character placeholder artwork" />
-        <span class="image-note">LEGEND ARTWORK<br/>PLACEHOLDER</span>
+        <img class="character-image" id="legend-image" src="/images/bloodhound.png" alt="Official Bloodhound character artwork" />
+        <span class="image-note">OFFICIAL EA<br/>CHARACTER ART</span>
       </div>
       <div class="details" id="abilities">
         <div class="details-heading"><span class="section-kicker">01 / THE HUNTER</span><span class="red-dot"></span></div>
@@ -83,6 +83,7 @@ app.innerHTML = `
       <div class="legend-selector" role="group" aria-label="Choose a Legend" id="legend-selector"></div>
       <span class="page-count" id="page-count">01 <i>/</i> 04</span>
     </footer>
+    <p class="legal-note">This project is not endorsed by or affiliated with EA or its licensors.</p>
     <div class="vertical-note">APEX LEGENDS <span>—</span> OUTLANDS</div>
   </main>
 `
@@ -98,8 +99,8 @@ function selectLegend(id: string) {
   document.querySelector('#legend-role')!.textContent = legend.role
   document.querySelector('#legend-description')!.textContent = legend.description
   const image = document.querySelector<HTMLImageElement>('#legend-image')!
-  image.src = `/images/${legend.id}.svg`
-  image.alt = `${legend.name} character placeholder artwork`
+  image.src = `/images/${legend.id}.png`
+  image.alt = `Official ${legend.name} character artwork`
   document.querySelector('#page-count')!.innerHTML = `0${index + 1} <i>/</i> 04`
   document.querySelector('.role-label')!.textContent = `${legend.className} CLASS`
   document.querySelector('#ability-list')!.innerHTML = legend.abilities.map((ability, i) => `<article class="ability"><span class="ability-number">0${i + 1}</span><div><span class="ability-type">${ability.type}</span><h2>${ability.name}</h2><p>${ability.detail}</p></div><span class="ability-symbol" aria-hidden="true">${['⌖', '◉', '✳'][i]}</span></article>`).join('')
