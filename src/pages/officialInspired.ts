@@ -1,6 +1,7 @@
 import { legends } from '../data/legends';
 
 const featuredLegends = legends.slice(0, 8);
+const previewLegend = legends.find((legend) => legend.id === 'bloodhound')!;
 const maps = [
   'Broken Moon',
   'E-District',
@@ -26,6 +27,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
         <a href="#features">The game</a>
         <a href="#trailer">Trailer</a>
         <a href="#featured-legends">Legends</a>
+        <a href="#abilities-preview">Abilities</a>
         <a href="#maps">Maps</a>
         <a href="#news">News</a>
       </nav>
@@ -181,6 +183,43 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
         </div>
       </section>
 
+      <section class="official-abilities-section" id="abilities-preview">
+        <div class="official-section-heading" data-reveal>
+          <p class="official-kicker">ONE LEGEND · THREE TOOLS</p>
+          <h2>Every move has a purpose.</h2>
+          <p>Learn how a Legend’s kit fits together before you drop in.</p>
+        </div>
+        <div class="official-abilities-preview">
+          <div class="official-ability-portrait" data-reveal>
+            <img src="${previewLegend.image}" alt="${previewLegend.name} character artwork" loading="lazy" decoding="async" />
+            <div>
+              <span>${previewLegend.className} · ${previewLegend.role}</span>
+              <strong>${previewLegend.name}</strong>
+            </div>
+          </div>
+          <div class="official-ability-list">
+            ${previewLegend.abilities
+              .map(
+                (ability, index) => `
+                  <a class="official-ability-row" data-reveal href="/abilities/?legend=${previewLegend.id}">
+                    <span class="official-ability-index">0${index + 1}</span>
+                    <span class="official-ability-type">${ability.type}</span>
+                    <span class="official-ability-copy">
+                      <strong>${ability.name}</strong>
+                      <small>${ability.detail}</small>
+                    </span>
+                    <span class="official-ability-arrow" aria-hidden="true">↗</span>
+                  </a>
+                `,
+              )
+              .join('')}
+            <a class="official-text-link official-ability-link" href="/abilities/?legend=${previewLegend.id}">
+              Explore all Legend abilities <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="official-maps-section" id="maps">
         <picture class="official-map-image" aria-hidden="true">
           <source
@@ -278,6 +317,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
           </a>
         </div>
       </section>
+
     </main>
 
     <footer class="official-footer">
