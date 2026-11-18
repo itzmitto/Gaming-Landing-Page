@@ -1,0 +1,215 @@
+import { legends } from '../data/legends';
+import type { Legend, LegendClass } from '../data/types';
+
+const classes: LegendClass[] = [
+  'Assault',
+  'Controller',
+  'Recon',
+  'Skirmisher',
+  'Support',
+];
+
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
+export function renderShowcase(app: HTMLDivElement): void {
+  document.title = 'Apex Legends — Legend Showcase';
+  app.innerHTML = `
+    <header class="navbar">
+      <a class="brand" href="#home" aria-label="Legend Showcase home">
+        <span class="brand-mark">APEX</span>
+        <span class="brand-caption">LEGENDS</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a class="nav-link active" href="#legends">Legends</a>
+        <a class="nav-link" href="#abilities">Abilities</a>
+        <a class="nav-link" href="https://www.ea.com/games/apex-legends/apex-legends" target="_blank" rel="noreferrer">Discover <span aria-hidden="true">↗</span></a>
+      </nav>
+      <a
+        class="page-switch"
+        href="/official-inspired/"
+        aria-label="Explore the official-inspired fan page"
+      >
+        Explore Official-Inspired Page <span aria-hidden="true">→</span>
+      </a>
+    </header>
+    <main id="home" class="showcase" aria-live="polite">
+      <div class="backdrop" aria-hidden="true">
+        <div class="backdrop-stripe"></div>
+        <div class="backdrop-grid"></div>
+        <span class="backdrop-number">LEGENDS</span>
+      </div>
+      <div class="eyebrow"><span class="eyebrow-line"></span> THE FRONTIER’S FINEST <span class="eyebrow-line"></span></div>
+      <section class="hero" id="legends">
+        <div class="identity">
+          <div class="legend-index" id="legend-index"></div>
+          <p class="role-label" id="legend-class"></p>
+          <h1 id="legend-name"></h1>
+          <p class="legend-role" id="legend-role"></p>
+          <a class="story-link" href="#abilities">MEET THE LEGEND <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="character-stage" aria-label="Selected Legend artwork">
+          <div class="stage-ring"></div>
+          <div class="stage-dash"></div>
+          <div class="image-shadow"></div>
+          <img class="character-image" id="legend-image" alt="" />
+          <span class="image-note">OFFICIAL EA<br />CHARACTER ART</span>
+        </div>
+        <div class="details" id="abilities">
+          <div class="details-heading">
+            <span class="section-kicker" id="details-kicker"></span>
+            <span class="red-dot"></span>
+          </div>
+          <p class="description" id="legend-description"></p>
+          <div class="ability-list" id="ability-list"></div>
+        </div>
+      </section>
+      <section class="roster" id="roster" aria-labelledby="roster-title">
+        <div class="roster-heading">
+          <div>
+            <p class="section-kicker">THE COMPLETE ROSTER</p>
+            <h2 id="roster-title">Choose your Legend</h2>
+            <p class="roster-subtitle">Search all ${legends.length} playable Legends or filter by class.</p>
+          </div>
+          <div class="roster-tools">
+            <label class="roster-field">
+              <span>Search Legends</span>
+              <input id="legend-search" type="search" placeholder="Name or role" autocomplete="off" />
+            </label>
+            <label class="roster-field">
+              <span>Class</span>
+              <select id="class-filter">
+                <option value="all">All classes</option>
+                ${classes.map((className) => `<option value="${className}">${className}</option>`).join('')}
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="roster-status" id="roster-status" aria-live="polite"></div>
+        <div class="legend-selector" role="group" aria-label="Choose a Legend" id="legend-selector"></div>
+        <p class="roster-empty" id="roster-empty" hidden>No Legends match those filters.</p>
+      </section>
+      <p class="legal-note">This project is not endorsed by or affiliated with EA or its licensors.</p>
+    </main>
+  `;
+
+  const selector = app.querySelector<HTMLDivElement>('#legend-selector')!;
+  const search = app.querySelector<HTMLInputElement>('#legend-search')!;
+  const classFilter = app.querySelector<HTMLSelectElement>('#class-filter')!;
+  const selectedLegend =
+    legends.find((legend) => legend.id === 'bloodhound') ?? legends[0];
+
+  function renderLegend(legend: Legend): void {
+    const index = legends.indexOf(legend);
+    document.documentElement.dataset.legend = legend.id;
+    document.documentElement.style.setProperty('--accent', legend.accent);
+    document.querySelector('#legend-index')!.innerHTML = `
+      <span>${String(index + 1).padStart(2, '0')}</span>
+      <span class="index-rule"></span>
+      <span>${String(legends.length).padStart(2, '0')}</span>
+    `;
+    document.querySelector('#legend-class')!.textContent =
+      `${legend.className.toUpperCase()} CLASS`;
+    document.querySelector('#legend-name')!.textContent = legend.name;
+    document.querySelector('#legend-role')!.textContent = legend.role;
+    document.querySelector('#details-kicker')!.textContent =
+      `${String(index + 1).padStart(2, '0')} / ${legend.className.toUpperCase()}`;
+    document.querySelector('#legend-description')!.textContent =
+      legend.description;
+
+    const image = document.querySelector<HTMLImageElement>('#legend-image')!;
+    image.src = legend.image;
+    image.alt = `${legend.name} — official character artwork`;
+    image.classList.remove('image-enter');
+    requestAnimationFrame(() => image.classList.add('image-enter'));
+
+    document.querySelector('#ability-list')!.innerHTML = legend.abilities
+      .map(
+        (ability, abilityIndex) => `
+          <article class="ability">
+            <span class="ability-number">0${abilityIndex + 1}</span>
+            <div>
+              <span class="ability-type">${ability.type}</span>
+              <h3>${escapeHtml(ability.name)}</h3>
+              <p>${escapeHtml(ability.detail)}</p>
+            </div>
+            <span class="ability-symbol" aria-hidden="true">
+              ${['⌖', '◉', '✳'][abilityIndex]}
+            </span>
+          </article>
+        `,
+      )
+      .join('');
+
+    selector
+      .querySelectorAll<HTMLButtonElement>('.legend-option')
+      .forEach((button) => {
+        const active = button.dataset.legend === legend.id;
+        button.classList.toggle('selected', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+  }
+
+  function renderOptions(): void {
+    const query = search.value.trim().toLocaleLowerCase();
+    const selectedClass = classFilter.value;
+    const visibleLegends = legends.filter((legend) => {
+      const matchesQuery = `${legend.name} ${legend.role} ${legend.className}`
+        .toLocaleLowerCase()
+        .includes(query);
+      return (
+        matchesQuery &&
+        (selectedClass === 'all' || legend.className === selectedClass)
+      );
+    });
+
+    selector.innerHTML = visibleLegends
+      .map((legend) => {
+        const index = legends.indexOf(legend);
+        const selected = legend.id === document.documentElement.dataset.legend;
+        return `
+          <button
+            class="legend-option ${selected ? 'selected' : ''}"
+            type="button"
+            data-legend="${legend.id}"
+            aria-label="Select ${escapeHtml(legend.name)}, ${legend.className}"
+            aria-pressed="${selected}"
+          >
+            <span class="option-number">
+              ${String(index + 1).padStart(2, '0')}
+            </span>
+            <span class="option-copy">
+              <span class="option-name">${escapeHtml(legend.name)}</span>
+              <span class="option-class">${legend.className}</span>
+            </span>
+            <span class="option-arrow" aria-hidden="true">↗</span>
+          </button>
+        `;
+      })
+      .join('');
+
+    document.querySelector('#roster-status')!.textContent =
+      `Showing ${visibleLegends.length} of ${legends.length} Legends`;
+    document.querySelector<HTMLParagraphElement>('#roster-empty')!.hidden =
+      visibleLegends.length > 0;
+  }
+
+  selector.addEventListener('click', (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>(
+      '.legend-option',
+    );
+    const legend = legends.find((item) => item.id === button?.dataset.legend);
+    if (legend) renderLegend(legend);
+  });
+
+  search.addEventListener('input', renderOptions);
+  classFilter.addEventListener('change', renderOptions);
+  renderOptions();
+  renderLegend(selectedLegend);
+}

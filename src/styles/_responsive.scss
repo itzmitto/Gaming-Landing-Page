@@ -7,6 +7,11 @@
       gap: 22px;
     }
   }
+  .page-switch {
+    padding: 11px 12px;
+    font-size: 8px;
+    gap: 7px;
+  }
   .showcase {
     min-height: calc(100svh - 76px);
   }
@@ -31,23 +36,13 @@
     grid-template-columns: 20px 1fr 15px;
     gap: 7px;
   }
-  .selector-footer {
-    padding-inline: 28px;
-    grid-template-columns: 1fr auto;
-  }
-  .next-legend {
-    display: none;
-  }
-  .page-count {
-    grid-column: 2;
-  }
 }
 @media (max-width: 640px) {
   .navbar {
     height: 68px;
     padding-inline: 20px;
     nav {
-      gap: 15px;
+      display: none;
     }
   }
   .brand-mark {
@@ -61,13 +56,15 @@
     font-size: 8px;
     letter-spacing: 0.7px;
   }
-  .navbar nav .nav-link:nth-child(2) {
-    display: none;
-  }
-  .play-link {
-    padding: 11px 12px;
-    font-size: 8px;
-    gap: 7px;
+  .page-switch {
+    gap: 0;
+    padding: 10px 13px;
+    font-size: 0;
+    letter-spacing: 0;
+
+    span {
+      font-size: 14px;
+    }
   }
   .showcase {
     min-height: auto;
@@ -156,33 +153,8 @@
   .ability {
     padding: 11px 0;
   }
-  .ability .ability p {
+  .ability p {
     max-width: 270px;
-  }
-  .vertical-note {
-    display: none;
-  }
-  .selector-footer {
-    display: block;
-    padding: 12px 12px 17px;
-  }
-  .legend-selector {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2px;
-  }
-  .legend-option {
-    gap: 6px;
-    padding: 9px 8px;
-  }
-  .option-name {
-    font-size: 9px;
-  }
-  .option-number {
-    font-size: 7px;
-  }
-  .page-count {
-    display: none;
   }
   .legal-note {
     font-size: 7px;
