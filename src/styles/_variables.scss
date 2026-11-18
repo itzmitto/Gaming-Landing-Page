@@ -1,16 +1,45 @@
 :root {
   font-family: var(--font-body);
-  color: #202020;
-  background: #f3f3f1;
+  color: var(--ink);
+  background: var(--paper);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --accent: #a71920;
-  --accent-dark: #811117;
+  --accent: #d94d35;
+  --accent-dark: #a93628;
   --ink: #202020;
   --muted: #777775;
-  --paper: #f3f3f1;
+  --paper: #f3f1ec;
+  --surface-dark: #111315;
+  --surface-raised: #1b1e20;
+  --text-light: #f2f0ea;
+  --text-muted: #aaa9a4;
+  --font-display: 'Oswald', Impact, 'Arial Narrow', sans-serif;
+  --font-body: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+  --radius-sm: 2px;
+  --radius-md: 5px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --shadow-card: 0 18px 50px rgba(0, 0, 0, 0.22);
+  --shadow-focus: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 180ms;
+  --duration-base: 260ms;
+  --duration-slow: 550ms;
+  --content-width: 1440px;
+  --page-gutter: clamp(20px, 5vw, 80px);
+  --z-content: 1;
+  --z-artwork: 2;
+  --z-overlay: 3;
+  --z-navigation: 10;
 }
+
 :root[data-legend='octane'] {
   --accent: #e4a51e;
   --accent-dark: #b8770c;
@@ -23,12 +52,14 @@
   --accent: #d79136;
   --accent-dark: #a45d1d;
 }
+
 * {
   box-sizing: border-box;
 }
 html {
   min-width: 320px;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 body {
   margin: 0;
@@ -42,7 +73,16 @@ a {
 button {
   font: inherit;
 }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 ::selection {
   color: white;
   background: var(--accent);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
