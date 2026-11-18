@@ -716,6 +716,12 @@
   }
 }
 
+.official-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 @keyframes official-rise {
   from {
     opacity: 0;
@@ -775,11 +781,27 @@
   }
 
   .official-navbar {
-    min-height: 67px;
-    padding-inline: 17px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 13px 12px;
+    min-height: 0;
+    padding: 14px 17px 11px;
 
     nav {
-      display: none;
+      grid-column: 1 / -1;
+      gap: 18px;
+      overflow-x: auto;
+      padding-bottom: 3px;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      a {
+        flex: 0 0 auto;
+        font-size: 8px;
+      }
     }
   }
 
@@ -795,7 +817,7 @@
 
   .official-hero {
     min-height: 640px;
-    min-height: calc(100svh - 93px);
+    min-height: calc(100svh - 132px);
     padding: 70px 23px 85px;
 
     &::after {
@@ -927,6 +949,10 @@
     p {
       text-align: left;
     }
+  }
+
+  .official-footer-links {
+    gap: 7px;
   }
 }
 

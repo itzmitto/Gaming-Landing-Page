@@ -144,8 +144,17 @@
 }
 
 @media (max-width: 600px) {
-  .abilities-navbar nav {
-    display: none;
+  .abilities-navbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+
+    nav {
+      display: flex;
+      grid-column: 1 / -1;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+    }
   }
 
   .abilities-main {

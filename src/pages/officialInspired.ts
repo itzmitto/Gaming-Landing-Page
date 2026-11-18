@@ -289,7 +289,10 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
         This project is not endorsed by or affiliated with EA or its licensors.
         All game imagery belongs to its respective rights holders.
       </p>
-      <a class="official-footer-return" href="/">Back to Legend Showcase ↑</a>
+      <div class="official-footer-links">
+        <a class="official-footer-return" href="/abilities/">Legend Abilities ↗</a>
+        <a class="official-footer-return" href="/">Back to Legend Showcase ↑</a>
+      </div>
     </footer>
   `;
 
