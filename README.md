@@ -48,12 +48,12 @@ characterpagina's. De oorspronkelijke bestanden zijn transparante PNG's; de
 overtollige transparante randen zijn lokaal bijgesneden om de personages groter
 in de hero te tonen.
 
-| Lokaal bestand | Officiële EA-bron |
-| --- | --- |
+| Lokaal bestand                 | Officiële EA-bron                                                                                                                                                                                                                            |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `public/images/bloodhound.png` | [Bloodhound](https://drop-assets.ea.com/images/74yW8P5W3TW2rYgivzDNZi/5a33b4a103c723f5592eae941b2ceaf8/Apex-Legends_Bloodhound-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/bloodhound) |
-| `public/images/octane.png` | [Octane](https://drop-assets.ea.com/images/1jfSUKCMDTTuLX54SfhDyC/8804bffa5078a97fa4592e42d1f5fb74/Apex-Legends_Octane-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/octane) |
-| `public/images/wraith.png` | [Wraith](https://drop-assets.ea.com/images/55frFMnl3iqhxWEndIxQQZ/b894898ef2a40fb63aecdb1dc1dd06c5/Apex-Legends_Wraith-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/wraith) |
-| `public/images/mirage.png` | [Mirage](https://drop-assets.ea.com/images/6q5eXDp6PtGLdDxu0TBc4n/ec5526e8ceba0b817c55ad2725797c91/Apex-Legends_Mirage-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/mirage) |
+| `public/images/octane.png`     | [Octane](https://drop-assets.ea.com/images/1jfSUKCMDTTuLX54SfhDyC/8804bffa5078a97fa4592e42d1f5fb74/Apex-Legends_Octane-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/octane)             |
+| `public/images/wraith.png`     | [Wraith](https://drop-assets.ea.com/images/55frFMnl3iqhxWEndIxQQZ/b894898ef2a40fb63aecdb1dc1dd06c5/Apex-Legends_Wraith-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/wraith)             |
+| `public/images/mirage.png`     | [Mirage](https://drop-assets.ea.com/images/6q5eXDp6PtGLdDxu0TBc4n/ec5526e8ceba0b817c55ad2725797c91/Apex-Legends_Mirage-16x9.png), [EA characterpagina](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/mirage)             |
 
 EA's [content policy](https://help.ea.com/en/articles/security-and-rules/ea-content-policy/)
 staat gebruik van game-content voor persoonlijke projecten, waaronder fan-

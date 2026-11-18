@@ -11,12 +11,38 @@
   --muted: #777775;
   --paper: #f3f3f1;
 }
-:root[data-legend='octane'] { --accent: #e4a51e; --accent-dark: #b8770c; }
-:root[data-legend='wraith'] { --accent: #6278a0; --accent-dark: #394b70; }
-:root[data-legend='mirage'] { --accent: #d79136; --accent-dark: #a45d1d; }
-* { box-sizing: border-box; }
-html { min-width: 320px; scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; min-height: 100vh; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; }
-::selection { color: white; background: var(--accent); }
+:root[data-legend='octane'] {
+  --accent: #e4a51e;
+  --accent-dark: #b8770c;
+}
+:root[data-legend='wraith'] {
+  --accent: #6278a0;
+  --accent-dark: #394b70;
+}
+:root[data-legend='mirage'] {
+  --accent: #d79136;
+  --accent-dark: #a45d1d;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+}
+::selection {
+  color: white;
+  background: var(--accent);
+}

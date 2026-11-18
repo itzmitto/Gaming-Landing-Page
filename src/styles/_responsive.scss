@@ -1,13 +1,191 @@
 @media (max-width: 900px) {
-  .navbar { height: 76px; padding-inline: 28px; nav { margin-left: 0; gap: 22px; } }
-  .showcase { min-height: calc(100svh - 76px); }.hero { min-height: 520px; padding-inline: 35px; grid-template-columns: .9fr 1.2fr 1fr; }
-  .character-stage { width: 50%; }.character-image { height: 88%; }.details { padding-left: 0; }.description { font-size: 11px; }.ability { grid-template-columns: 20px 1fr 15px; gap: 7px; }
-  .selector-footer { padding-inline: 28px; grid-template-columns: 1fr auto; }.next-legend { display: none; }.page-count { grid-column: 2; }
+  .navbar {
+    height: 76px;
+    padding-inline: 28px;
+    nav {
+      margin-left: 0;
+      gap: 22px;
+    }
+  }
+  .showcase {
+    min-height: calc(100svh - 76px);
+  }
+  .hero {
+    min-height: 520px;
+    padding-inline: 35px;
+    grid-template-columns: 0.9fr 1.2fr 1fr;
+  }
+  .character-stage {
+    width: 50%;
+  }
+  .character-image {
+    height: 88%;
+  }
+  .details {
+    padding-left: 0;
+  }
+  .description {
+    font-size: 11px;
+  }
+  .ability {
+    grid-template-columns: 20px 1fr 15px;
+    gap: 7px;
+  }
+  .selector-footer {
+    padding-inline: 28px;
+    grid-template-columns: 1fr auto;
+  }
+  .next-legend {
+    display: none;
+  }
+  .page-count {
+    grid-column: 2;
+  }
 }
 @media (max-width: 640px) {
-  .navbar { height: 68px; padding-inline: 20px; nav { gap: 15px; } }.brand-mark { font-size: 23px; }.brand-caption { font-size: 7px; letter-spacing: 3px; }.nav-link { font-size: 8px; letter-spacing: .7px; }.navbar nav .nav-link:nth-child(2) { display: none; }.play-link { padding: 11px 12px; font-size: 8px; gap: 7px; }
-  .showcase { min-height: auto; overflow: hidden; }.eyebrow { margin-top: 20px; font-size: 7px; letter-spacing: 2px; }.hero { display: flex; flex-direction: column; align-items: stretch; min-height: 0; padding: 0 23px; }
-  .identity { position: relative; z-index: 4; padding: 29px 0 0; }.legend-index { margin-bottom: 24px; }h1 { font-size: clamp(46px, 13vw, 66px); letter-spacing: -2.8px; max-width: 100%; }.legend-role { margin: 9px 0 0; font-size: 11px; }.story-link { display: none; }
-  .backdrop-stripe { top: 153px; height: 440px; width: 67vw; }.backdrop-number { top: 380px; font-size: 90px; }.character-stage { position: relative; left: auto; top: auto; bottom: auto; transform: none; width: 100%; height: 385px; margin-top: -4px; order: 1; }.character-image { height: 100%; width: 100%; }.stage-ring { width: min(75vw, 340px); }.stage-dash { width: min(83vw, 380px); }.image-note { right: 0; bottom: 9%; font-size: 6px; }.details { order: 2; padding: 17px 0 25px; }.details-heading { margin-bottom: 11px; }.description { max-width: none; font-size: 11px; line-height: 1.65; margin-bottom: 12px; }.ability { padding: 11px 0; }.ability .ability p { max-width: 270px; }.vertical-note { display: none; }
-  .selector-footer { display: block; padding: 12px 12px 17px; }.legend-selector { justify-content: center; flex-wrap: wrap; gap: 2px; }.legend-option { gap: 6px; padding: 9px 8px; }.option-name { font-size: 9px; }.option-number { font-size: 7px; }.page-count { display: none; }.legal-note { font-size: 7px; padding-bottom: 9px; }
+  .navbar {
+    height: 68px;
+    padding-inline: 20px;
+    nav {
+      gap: 15px;
+    }
+  }
+  .brand-mark {
+    font-size: 23px;
+  }
+  .brand-caption {
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+  .nav-link {
+    font-size: 8px;
+    letter-spacing: 0.7px;
+  }
+  .navbar nav .nav-link:nth-child(2) {
+    display: none;
+  }
+  .play-link {
+    padding: 11px 12px;
+    font-size: 8px;
+    gap: 7px;
+  }
+  .showcase {
+    min-height: auto;
+    overflow: hidden;
+  }
+  .eyebrow {
+    margin-top: 20px;
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding: 0 23px;
+  }
+  .identity {
+    position: relative;
+    z-index: 4;
+    padding: 29px 0 0;
+  }
+  .legend-index {
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(46px, 13vw, 66px);
+    letter-spacing: -2.8px;
+    max-width: 100%;
+  }
+  .legend-role {
+    margin: 9px 0 0;
+    font-size: 11px;
+  }
+  .story-link {
+    display: none;
+  }
+  .backdrop-stripe {
+    top: 153px;
+    height: 440px;
+    width: 67vw;
+  }
+  .backdrop-number {
+    top: 380px;
+    font-size: 90px;
+  }
+  .character-stage {
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    height: 385px;
+    margin-top: -4px;
+    order: 1;
+  }
+  .character-image {
+    height: 100%;
+    width: 100%;
+  }
+  .stage-ring {
+    width: min(75vw, 340px);
+  }
+  .stage-dash {
+    width: min(83vw, 380px);
+  }
+  .image-note {
+    right: 0;
+    bottom: 9%;
+    font-size: 6px;
+  }
+  .details {
+    order: 2;
+    padding: 17px 0 25px;
+  }
+  .details-heading {
+    margin-bottom: 11px;
+  }
+  .description {
+    max-width: none;
+    font-size: 11px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .ability {
+    padding: 11px 0;
+  }
+  .ability .ability p {
+    max-width: 270px;
+  }
+  .vertical-note {
+    display: none;
+  }
+  .selector-footer {
+    display: block;
+    padding: 12px 12px 17px;
+  }
+  .legend-selector {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  .legend-option {
+    gap: 6px;
+    padding: 9px 8px;
+  }
+  .option-name {
+    font-size: 9px;
+  }
+  .option-number {
+    font-size: 7px;
+  }
+  .page-count {
+    display: none;
+  }
+  .legal-note {
+    font-size: 7px;
+    padding-bottom: 9px;
+  }
 }
