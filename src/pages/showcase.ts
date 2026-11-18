@@ -222,6 +222,9 @@ export function renderShowcase(app: HTMLDivElement): void {
             aria-label="Select ${escapeHtml(legend.name)}, ${legend.className}"
             aria-pressed="${selected}"
           >
+            <span class="option-portrait" aria-hidden="true">
+              <img src="${legend.image}" alt="" loading="lazy" decoding="async" />
+            </span>
             <span class="option-number">
               ${String(index + 1).padStart(2, '0')}
             </span>
