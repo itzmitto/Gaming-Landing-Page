@@ -1177,12 +1177,3 @@
     gap: 7px;
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  #app.official-site *,
-  #app.official-site *::before,
-  #app.official-site *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}

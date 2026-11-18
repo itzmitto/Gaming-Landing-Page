@@ -14,8 +14,6 @@
   --surface-raised: #1b1e20;
   --text-light: #f2f0ea;
   --text-muted: #aaa9a4;
-  --font-display: 'Oswald', Impact, 'Arial Narrow', sans-serif;
-  --font-body: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
   --radius-sm: 2px;
   --radius-md: 5px;
   --space-1: 4px;
@@ -89,17 +87,4 @@ select {
 ::selection {
   color: white;
   background: var(--accent);
-}
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
 }
