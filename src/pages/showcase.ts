@@ -28,9 +28,15 @@ export function renderShowcase(app: HTMLDivElement): void {
       </a>
       <nav aria-label="Main navigation">
         <a class="nav-link active" href="#legends">Legends</a>
-        <a class="nav-link" href="#abilities">Abilities</a>
+        <a class="nav-link abilities-nav-link" href="/abilities/">Abilities</a>
         <a class="nav-link" href="https://www.ea.com/games/apex-legends/apex-legends" target="_blank" rel="noreferrer">Discover <span aria-hidden="true">↗</span></a>
       </nav>
+      <a
+        class="mobile-abilities-link abilities-nav-link"
+        href="/abilities/?legend=bloodhound"
+      >
+        Abilities
+      </a>
       <a
         class="page-switch"
         href="/official-inspired/"
@@ -52,7 +58,9 @@ export function renderShowcase(app: HTMLDivElement): void {
           <p class="role-label" id="legend-class"></p>
           <h1 id="legend-name"></h1>
           <p class="legend-role" id="legend-role"></p>
-          <a class="story-link" href="#abilities">MEET THE LEGEND <span aria-hidden="true">↗</span></a>
+          <a class="story-link abilities-nav-link" href="/abilities/?legend=bloodhound">
+            EXPLORE ABILITIES <span aria-hidden="true">↗</span>
+          </a>
         </div>
         <div class="character-stage" aria-label="Selected Legend artwork">
           <div class="stage-ring"></div>
@@ -102,13 +110,23 @@ export function renderShowcase(app: HTMLDivElement): void {
   const selector = app.querySelector<HTMLDivElement>('#legend-selector')!;
   const search = app.querySelector<HTMLInputElement>('#legend-search')!;
   const classFilter = app.querySelector<HTMLSelectElement>('#class-filter')!;
+  const requestedLegend = new URLSearchParams(window.location.search).get(
+    'legend',
+  );
   const selectedLegend =
-    legends.find((legend) => legend.id === 'bloodhound') ?? legends[0];
+    legends.find((legend) => legend.id === requestedLegend) ??
+    legends.find((legend) => legend.id === 'bloodhound') ??
+    legends[0];
 
   function renderLegend(legend: Legend): void {
     const index = legends.indexOf(legend);
     document.documentElement.dataset.legend = legend.id;
     document.documentElement.style.setProperty('--accent', legend.accent);
+    app
+      .querySelectorAll<HTMLAnchorElement>('.abilities-nav-link')
+      .forEach((link) => {
+        link.href = `/abilities/?legend=${legend.id}`;
+      });
     document.querySelector('#legend-index')!.innerHTML = `
       <span>${String(index + 1).padStart(2, '0')}</span>
       <span class="index-rule"></span>
