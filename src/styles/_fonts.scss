@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/oswald-latin.woff2') format('woff2');
+}
+
+:root {
+  --font-display: 'Oswald', Impact, 'Arial Narrow', sans-serif;
+  --font-body: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+}

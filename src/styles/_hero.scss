@@ -126,12 +126,13 @@
   letter-spacing: 2px;
 }
 h1 {
+  font-family: var(--font-display);
   margin: 0;
   max-width: 330px;
   font-size: clamp(46px, 5.4vw, 79px);
   line-height: 0.92;
-  font-weight: 900;
-  letter-spacing: -4px;
+  font-weight: 700;
+  letter-spacing: 0.015em;
   text-transform: uppercase;
 }
 .legend-role {

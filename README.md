@@ -27,11 +27,24 @@ styling zijn zelfstandig geschreven; dit zijn geen officiële EA-pagina’s.
 
 Er wordt geen React, Tailwind of ander groot framework gebruikt.
 
+## Typografie
+
+De officiële Apex-site laadt **Duke** voor displaykoppen en **TT Lakes** voor
+lopende tekst via [EA's font stylesheet](https://www.ea.com/fonts/apex-legends/fonts.css).
+Ik heb geen herdistributielicentie voor die fonts gevonden en neem ze daarom
+niet over. De koppen en navigatie gebruiken lokaal gehost **Oswald**; lopende
+tekst gebruikt de systeemstack Trebuchet MS, Segoe UI en Arial.
+
+Oswald is afkomstig uit de [Google Fonts-repository](https://github.com/google/fonts/tree/main/ofl/oswald)
+en valt onder de SIL Open Font License 1.1. De licentie staat bij
+`public/fonts/OFL-oswald.txt`.
+
 ## Mappenstructuur
 
 ```text
 .
 ├── public/
+│   ├── fonts/                  # Oswald WOFF2 en SIL OFL-licentie
 │   └── images/                 # Lokaal opgeslagen artwork van EA
 ├── src/
 │   ├── data/
