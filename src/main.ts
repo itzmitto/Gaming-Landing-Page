@@ -69,7 +69,7 @@ app.innerHTML = `
       <div class="character-stage" aria-label="Legend artwork">
         <div class="stage-ring"></div><div class="stage-dash"></div>
         <div class="image-shadow"></div>
-        <img class="character-image" id="legend-image" src="/images/bloodhound.png" alt="Bloodhound character placeholder artwork" />
+        <img class="character-image" id="legend-image" src="/images/bloodhound.svg" alt="Bloodhound character placeholder artwork" />
         <span class="image-note">LEGEND ARTWORK<br/>PLACEHOLDER</span>
       </div>
       <div class="details" id="abilities">
@@ -98,7 +98,7 @@ function selectLegend(id: string) {
   document.querySelector('#legend-role')!.textContent = legend.role
   document.querySelector('#legend-description')!.textContent = legend.description
   const image = document.querySelector<HTMLImageElement>('#legend-image')!
-  image.src = `/images/${legend.id}.png`
+  image.src = `/images/${legend.id}.svg`
   image.alt = `${legend.name} character placeholder artwork`
   document.querySelector('#page-count')!.innerHTML = `0${index + 1} <i>/</i> 04`
   document.querySelector('.role-label')!.textContent = `${legend.className} CLASS`
