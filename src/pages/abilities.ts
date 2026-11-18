@@ -10,6 +10,11 @@ const classes: LegendClass[] = [
 ];
 
 const abilityOrder = ['Passive', 'Tactical', 'Ultimate'] as const;
+const abilityIcons = {
+  Passive: 'shield',
+  Tactical: 'crosshair',
+  Ultimate: 'zap',
+} as const;
 
 function escapeHtml(value: string): string {
   return value
@@ -161,7 +166,10 @@ export function renderAbilities(app: HTMLDivElement): void {
           <article class="ability-card" style="--card-index: ${abilityIndex}">
             <div class="ability-card-topline">
               <span class="ability-card-index">0${abilityIndex + 1}</span>
-              <span class="ability-card-type">${type} Ability</span>
+            <span class="ability-card-type">
+              <img src="/images/icons/${abilityIcons[type]}.svg" alt="" aria-hidden="true" />
+              ${type} Ability
+            </span>
             </div>
             <h3>${escapeHtml(ability.name)}</h3>
             <p>${escapeHtml(ability.detail)}</p>

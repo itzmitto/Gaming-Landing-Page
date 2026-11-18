@@ -139,9 +139,16 @@ De officiële ability-namen en beschrijvingen zijn gecontroleerd aan de hand van
 EA's [Legend abilities-gids](https://help.ea.com/en/articles/apex-legends/abilities/)
 en de individuele karakterpagina's in de Characters Hub.
 De geraadpleegde EA-pagina's boden geen openbare ability-iconen aan als
-downloadbare bestanden. Daarom gebruikt het ability-overzicht de echte lokale
-character-renders en tekstkaarten; er zijn geen nepiconen of SVG-placeholders
-gemaakt.
+downloadbare bestanden. Het ability-overzicht gebruikt daarom de echte lokale
+character-renders, tekstkaarten en algemene Lucide-type-iconen; er worden geen
+iconen voorgesteld als officiële Apex-ability-art.
+
+De ability-kaarten gebruiken nu drie algemene interface-iconen van
+[Lucide](https://lucide.dev/icons/): `shield`, `crosshair` en `zap`. De SVG's
+zijn lokaal opgeslagen in `public/images/icons/` vanuit de
+[Lucide GitHub-iconenmap](https://github.com/lucide-icons/lucide/tree/main/icons)
+en vallen onder de [ISC-licentie](https://github.com/lucide-icons/lucide/blob/main/LICENSE).
+Dit zijn geen officiële Apex-ability-iconen.
 
 ## Lokaal installeren en starten
 

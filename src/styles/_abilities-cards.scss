@@ -57,8 +57,19 @@
 }
 
 .ability-card-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   color: #b8b7b2;
   letter-spacing: 1.1px;
+
+  img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.9;
+    filter: invert(68%) sepia(63%) saturate(538%) hue-rotate(321deg)
+      brightness(93%) contrast(88%);
+  }
 }
 
 .ability-card p,
