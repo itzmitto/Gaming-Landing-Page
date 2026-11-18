@@ -117,6 +117,8 @@ Maps Hub](https://www.ea.com/games/apex-legends/apex-legends/game-objects/maps-h
 Deze bestanden staan in `public/images/`. De pagina vermeldt EA als bron en
 toont duidelijk dat het om een fanproject gaat. Er zijn geen EA-accounts,
 inlogfuncties of aankopen beschikbaar.
+De mobiele WebP-varianten zijn verkleind van deze lokale EA-bronbestanden;
+de originele bestanden blijven beschikbaar voor grotere schermen.
 
 EA's [content policy](https://help.ea.com/en/articles/security-and-rules/ea-content-policy/)
 staat persoonlijk gebruik van gamecontent in fanprojecten onder voorwaarden
