@@ -1,4 +1,6 @@
-@media (max-width: 900px) {
+@use './variables' as *;
+
+@media (max-width: $breakpoint-tablet) {
   .navbar {
     height: 76px;
     padding-inline: 28px;
@@ -37,7 +39,7 @@
     gap: 7px;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: $breakpoint-mobile) {
   .navbar {
     height: 68px;
     padding-inline: 20px;

@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 .roster {
   position: relative;
   z-index: 6;
@@ -222,7 +224,7 @@
   text-align: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: $breakpoint-tablet) {
   .roster-heading {
     align-items: start;
     flex-direction: column;
@@ -247,7 +249,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: $breakpoint-mobile) {
   .roster {
     padding: 36px 20px 30px;
   }

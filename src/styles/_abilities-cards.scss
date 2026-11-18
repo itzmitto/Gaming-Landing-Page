@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 .ability-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -130,7 +132,7 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 900px) {
+@media (max-width: $breakpoint-tablet) {
   .abilities-layout {
     grid-template-columns: 1fr;
   }
@@ -154,7 +156,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: $breakpoint-compact) {
   .abilities-navbar {
     display: grid;
     grid-template-columns: 1fr auto;

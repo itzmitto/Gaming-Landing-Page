@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 #app.official-site {
   min-height: 100vh;
   overflow: hidden;
@@ -913,7 +915,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: $breakpoint-tablet) {
   .official-navbar {
     gap: 18px;
     padding-inline: 22px;
@@ -965,7 +967,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: $breakpoint-mobile) {
   .official-fan-ribbon {
     font-size: 7px;
     letter-spacing: 1px;
