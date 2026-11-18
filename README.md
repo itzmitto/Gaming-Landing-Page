@@ -12,8 +12,8 @@ styling zijn zelfstandig geschreven; dit zijn geen officiële EA-pagina’s.
   korte beschrijving en tactical, passive en ultimate abilities.
 - Zoek in de roster op naam, rol of klasse en filter op klasse.
 - Selecteer een Legend om de afbeelding, inhoud en accentkleur te wijzigen.
-- Bekijk `/official-inspired/` met gamefuncties, Legends, maps en links naar
-  actueel officieel nieuws.
+- Bekijk `/official-inspired/` met gamefuncties, een lazy-loaded gameplayvideo,
+  Legends, maps en links naar officieel nieuws.
 - Navigeer tussen de showcase en de tweede pagina.
 - Responsive layouts voor desktop en mobiel, gelaagde afbeeldingen, subtiele
   overgangen, toetsenbordfocus en ondersteuning voor verminderde beweging.

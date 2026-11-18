@@ -347,6 +347,53 @@
   min-height: 310px;
 }
 
+.official-video-section {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.8fr) minmax(0, 1.5fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 82px);
+  padding: 82px clamp(24px, 7vw, 105px);
+  color: #f2f0ea;
+  background: #111415;
+
+  h2 {
+    margin: 13px 0;
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 62px);
+    font-weight: 700;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  p:not(.official-kicker) {
+    max-width: 390px;
+    margin-bottom: 23px;
+    color: #c2c1bc;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .official-text-link {
+    color: #f2f0ea;
+  }
+}
+
+.official-video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #202526;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
 .official-card-label {
   color: #f28462;
   font-size: 8px;
@@ -661,6 +708,11 @@
     gap: 28px;
   }
 
+  .official-video-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
   .official-section-heading-row {
     align-items: start;
     flex-direction: column;
@@ -740,6 +792,7 @@
   }
 
   .official-feature-section,
+  .official-video-section,
   .official-legends-section,
   .official-news-section {
     padding: 63px 20px;
@@ -747,6 +800,10 @@
 
   .official-feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .official-video-section {
+    gap: 20px;
   }
 
   .official-feature-card,

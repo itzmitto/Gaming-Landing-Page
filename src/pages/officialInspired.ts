@@ -24,6 +24,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
       </a>
       <nav aria-label="Page navigation">
         <a href="#features">The game</a>
+        <a href="#trailer">Trailer</a>
         <a href="#featured-legends">Legends</a>
         <a href="#maps">Maps</a>
         <a href="#news">News</a>
@@ -114,6 +115,35 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
               <p>Explore the places and stories that connect the Outlands.</p>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="official-video-section" id="trailer">
+        <div class="official-video-copy">
+          <p class="official-kicker">SEASON 31 · GAMEPLAY TRAILER</p>
+          <h2>Hack the fight.</h2>
+          <p>
+            See Crypto’s latest kit and the new ways squads can take control
+            of a match in Apex Legends: Cipher.
+          </p>
+          <a
+            class="official-text-link"
+            href="https://www.ea.com/games/apex-legends/apex-legends/news/cipher-game-updates"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Cipher game updates <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="official-video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/yQ9LVy4DR9U?rel=0"
+            title="Apex Legends: Cipher Gameplay Trailer"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
       </section>
 
