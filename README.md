@@ -48,7 +48,12 @@ en valt onder de SIL Open Font License 1.1. De licentie staat bij
 .
 ├── public/
 │   ├── fonts/                  # Oswald WOFF2 en SIL OFL-licentie
-│   └── images/                 # Lokaal opgeslagen artwork van EA
+│   └── images/
+│       ├── backgrounds/        # EA hero-art en mobiele varianten
+│       ├── features/           # EA feature-panel artwork
+│       ├── icons/              # Lucide SVG type-iconen (ISC)
+│       ├── legends/            # 28 transparante EA character-renders
+│       └── maps/               # EA map-artwork en mobiele variant
 ├── src/
 │   ├── data/
 │   │   ├── legends/            # Legend-data per klasse
@@ -80,7 +85,7 @@ en valt onder de SIL Open Font License 1.1. De licentie staat bij
 ## Bronnen van Legend-afbeeldingen
 
 Alle 28 character-renders zijn gedownload van de officiële Apex Legends-
-profielpagina’s van EA en lokaal opgeslagen in `public/images/`. De
+profielpagina’s van EA en lokaal opgeslagen in `public/images/legends/`. De
 transparante PNG-bronbestanden waren 1120 × 630 pixels. De transparante randen
 zijn lokaal bijgesneden zonder de afbeeldingen te herschalen of vergroten. De
 renders zijn daardoor kleiner dan 1080 pixels hoog; EA bood geen grotere
@@ -117,11 +122,11 @@ profielbestanden aan. De oorspronkelijke pixelgegevens zijn behouden.
 | `wattson.png`    | [Wattson](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/wattson)       |
 | `wraith.png`     | [Wraith](https://www.ea.com/games/apex-legends/apex-legends/characters-hub/wraith)         |
 
-De tweede pagina gebruikt ook officieel Apex-artwork: `official-hero.jpg` van
+De tweede pagina gebruikt ook officieel Apex-artwork: `backgrounds/official-hero.jpg` van
 de [Apex Legends-homepage](https://www.ea.com/games/apex-legends/apex-legends),
-feature-artwork van EA’s Apex-site en `map-e-district.jpg` van de [officiële
+feature-artwork in `features/` van EA’s Apex-site en `maps/map-e-district.jpg` van de [officiële
 Maps Hub](https://www.ea.com/games/apex-legends/apex-legends/game-objects/maps-hub).
-Deze bestanden staan in `public/images/`. De pagina vermeldt EA als bron en
+Deze bestanden staan onder `public/images/`. De pagina vermeldt EA als bron en
 toont duidelijk dat het om een fanproject gaat. Er zijn geen EA-accounts,
 inlogfuncties of aankopen beschikbaar.
 De mobiele WebP-varianten zijn verkleind van deze lokale EA-bronbestanden;

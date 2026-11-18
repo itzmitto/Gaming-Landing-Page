@@ -40,11 +40,11 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
         <picture class="official-hero-image" aria-hidden="true">
           <source
             media="(max-width: 640px)"
-            srcset="/images/official-hero-mobile.webp"
+            srcset="/images/backgrounds/official-hero-mobile.webp"
             type="image/webp"
           />
           <img
-            src="/images/official-hero.jpg"
+            src="/images/backgrounds/official-hero.jpg"
             alt=""
             width="3840"
             height="2160"
@@ -81,7 +81,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
         <div class="official-feature-grid">
           <article class="official-feature-card official-feature-card-wide" data-reveal>
             <img
-              src="/images/feature-legends.png"
+              src="/images/features/feature-legends.png"
               alt="A squad of Apex Legends gathered in the arena"
               loading="lazy"
               decoding="async"
@@ -94,7 +94,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
           </article>
           <article class="official-feature-card" data-reveal>
             <img
-              src="/images/feature-modes.png"
+              src="/images/features/feature-modes.png"
               alt="Legends facing a glowing portal in the Outlands"
               loading="lazy"
               decoding="async"
@@ -107,7 +107,7 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
           </article>
           <article class="official-feature-card" data-reveal>
             <img
-              src="/images/feature-lore.jpg"
+              src="/images/features/feature-lore.jpg"
               alt="A Legend exploring an icy frontier outpost"
               loading="lazy"
               decoding="async"
@@ -225,11 +225,11 @@ export function renderOfficialInspired(app: HTMLDivElement): void {
         <picture class="official-map-image" aria-hidden="true">
           <source
             media="(max-width: 640px)"
-            srcset="/images/map-e-district-mobile.webp"
+            srcset="/images/maps/map-e-district-mobile.webp"
             type="image/webp"
           />
           <img
-            src="/images/map-e-district.jpg"
+            src="/images/maps/map-e-district.jpg"
             alt=""
             width="4800"
             height="1500"

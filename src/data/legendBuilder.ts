@@ -17,7 +17,7 @@ export function createLegend(
     className,
     description,
     accent,
-    image: `/images/${id}.png`,
+    image: `/images/legends/${id}.png`,
     sourcePage: `https://www.ea.com/games/apex-legends/apex-legends/characters-hub/${id}`,
     abilities: abilityData.map(([type, abilityName, detail]) => ({
       type,
