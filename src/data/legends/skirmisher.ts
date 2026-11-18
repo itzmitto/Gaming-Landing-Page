@@ -39,8 +39,8 @@ export const skirmisherLegends = [
       ],
       [
         'Passive',
-        'Predator’s Pursuit',
-        'View recent death-box locations on your map.',
+        'Predator’s Pursuit · Dash',
+        'Track recent death boxes on your map. Dash upgrades add a second burst of movement.',
       ],
       [
         'Ultimate',

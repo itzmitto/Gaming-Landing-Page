@@ -39,8 +39,8 @@ export const supportLegends = [
       ],
       [
         'Passive',
-        'Gun Shield',
-        'Deploy a protective shield while aiming down sights.',
+        'Gun Shield · Momentum Boost',
+        'Aiming deploys a gun shield. Sustained sprinting grants a speed boost, and Gibraltar can break doors in one hit.',
       ],
       [
         'Ultimate',
@@ -58,18 +58,18 @@ export const supportLegends = [
     [
       [
         'Tactical',
-        'D.O.C. Heal Drone',
-        'Send D.O.C. to follow an ally and heal nearby teammates.',
+        'D.O.C Heal Drone',
+        'Call D.O.C to follow you or an ally and heal nearby teammates.',
       ],
       [
         'Passive',
-        'Combat Medic',
-        'Deploy D.O.C. to revive a teammate while you stay free to move.',
+        'Combat Medic · Combat Glide',
+        'D.O.C revives teammates while Lifeline stays free to move. She can also grab D.O.C and glide briefly.',
       ],
       [
         'Ultimate',
-        'D.O.C. Halo',
-        'Activate a shield system that blocks bullets and speeds healing inside.',
+        'D.O.C Halo',
+        'Deploy D.O.C’s Halo Shield System to block bullets and speed healing inside.',
       ],
     ],
   ),

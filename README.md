@@ -113,6 +113,10 @@ uit dat EA van derden heeft gelicentieerd. Controleer de actuele voorwaarden
 voordat je het project publiceert of het gebruik aanpast. Al het artwork blijft
 eigendom van de respectieve rechthebbenden.
 
+De officiële ability-namen en beschrijvingen zijn gecontroleerd aan de hand van
+EA's [Legend abilities-gids](https://help.ea.com/en/articles/apex-legends/abilities/)
+en de individuele karakterpagina's in de Characters Hub.
+
 ## Lokaal installeren en starten
 
 ### Installatie

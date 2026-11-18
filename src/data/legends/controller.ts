@@ -37,7 +37,11 @@ export const controllerLegends = [
         'Nox Gas Trap',
         'Place canisters that release Nox gas when shot or triggered by enemies.',
       ],
-      ['Passive', 'Nox Vision', 'See enemies through your Nox gas.'],
+      [
+        'Passive',
+        'Nox Vision · Field Research',
+        'See enemies through Nox gas. Poisoning enemies and opening death boxes advances Field Research upgrades.',
+      ],
       [
         'Ultimate',
         'Nox Gas Grenade',
@@ -59,8 +63,8 @@ export const controllerLegends = [
       ],
       [
         'Passive',
-        'Modded Loader',
-        'Increase magazine capacity and reload faster with light machine guns.',
+        'Battle Modder',
+        'Increase magazine capacity and reload speed with LMGs and Sheila. Amped Cover gains health with EVO upgrades.',
       ],
       [
         'Ultimate',
