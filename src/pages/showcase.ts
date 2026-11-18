@@ -36,9 +36,9 @@ export function renderShowcase(app: HTMLDivElement): void {
         type="button"
         aria-expanded="false"
         aria-controls="showcase-navigation"
+        aria-label="Open navigation"
       >
-        <span></span><span></span>
-        <span class="visually-hidden">Open navigation</span>
+        <span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
       <a
         class="page-switch"
@@ -259,19 +259,33 @@ export function renderShowcase(app: HTMLDivElement): void {
 
   function closeMobileNavigation(): void {
     navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open navigation');
     navigation.classList.remove('is-open');
   }
 
   navToggle.addEventListener('click', () => {
     const expanded = navToggle.getAttribute('aria-expanded') === 'true';
     navToggle.setAttribute('aria-expanded', String(!expanded));
+    navToggle.setAttribute(
+      'aria-label',
+      expanded ? 'Open navigation' : 'Close navigation',
+    );
     navigation.classList.toggle('is-open', !expanded);
   });
   navigation.addEventListener('click', (event) => {
     if ((event.target as HTMLElement).closest('a')) closeMobileNavigation();
   });
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMobileNavigation();
+    if (
+      event.key === 'Escape' &&
+      navToggle.getAttribute('aria-expanded') === 'true'
+    ) {
+      closeMobileNavigation();
+      navToggle.focus();
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 640) closeMobileNavigation();
   });
 
   search.addEventListener('input', renderOptions);
