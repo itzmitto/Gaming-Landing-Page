@@ -129,6 +129,8 @@ export function renderAbilities(app: HTMLDivElement): void {
     const portrait = app.querySelector<HTMLImageElement>('#ability-portrait')!;
     portrait.src = legend.image;
     portrait.alt = `${legend.name} character artwork`;
+    portrait.classList.remove('image-enter');
+    requestAnimationFrame(() => portrait.classList.add('image-enter'));
     app.querySelector('#ability-portrait-index')!.textContent =
       `${String(index + 1).padStart(2, '0')} / ${String(legends.length).padStart(2, '0')}`;
     app.querySelector('#ability-class')!.textContent =

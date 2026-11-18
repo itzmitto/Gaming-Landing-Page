@@ -30,7 +30,7 @@
 
   a:hover,
   a:focus-visible {
-    color: #f07857;
+    color: var(--accent);
   }
 }
 
@@ -42,7 +42,7 @@
   letter-spacing: 2px;
 
   small {
-    color: #f07857;
+    color: var(--accent);
     font-size: 7px;
     letter-spacing: 2px;
   }
@@ -134,7 +134,7 @@
 }
 
 .ability-legend-option.selected {
-  box-shadow: inset 3px 0 #f07857;
+  box-shadow: inset 3px 0 var(--accent);
 }
 
 .ability-option-class,
@@ -155,7 +155,7 @@
   position: relative;
   height: 350px;
   overflow: hidden;
-  background: #742a2d;
+  background: color-mix(in srgb, var(--accent), #151819 23%);
 }
 
 .ability-portrait-backdrop {
@@ -193,7 +193,7 @@
 
 .abilities-kicker,
 .ability-role {
-  color: #f07857;
+  color: var(--accent);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.3px;

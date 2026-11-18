@@ -1,0 +1,189 @@
+.ability-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.ability-card {
+  position: relative;
+  min-width: 0;
+  min-height: 190px;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid #393e3f;
+  background: linear-gradient(145deg, #222829, #191d1e 68%);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+  animation: ability-reveal 420ms ease both;
+  animation-delay: calc(var(--card-index) * 55ms);
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 30px;
+    height: 2px;
+    background: var(--accent);
+    content: '';
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    background: #252b2c;
+  }
+}
+
+.ability-card h3 {
+  margin: 20px 0 9px;
+  font-size: clamp(16px, 1.6vw, 21px);
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.ability-card p {
+  margin: 0;
+}
+
+.ability-card-topline {
+  align-items: center;
+}
+
+.ability-card-index {
+  font-size: 11px;
+}
+
+.ability-card-type {
+  color: #b8b7b2;
+  letter-spacing: 1.1px;
+}
+
+.ability-card p,
+.abilities-footer p {
+  color: #b8b7b2;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.ability-card-topline,
+.abilities-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ability-card-index,
+.ability-card-type {
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ability-source {
+  display: inline-block;
+  margin: 18px 0 50px;
+  color: var(--accent);
+  font-size: 10px;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #fff;
+  }
+}
+
+.abilities-footer {
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #363a3b;
+}
+
+.abilities-footer p {
+  max-width: 540px;
+}
+
+.abilities-footer a {
+  color: #fff;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .abilities-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .abilities-selector {
+    max-height: 240px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ability-profile-header {
+    grid-template-columns: minmax(180px, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .ability-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ability-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .abilities-navbar nav {
+    display: none;
+  }
+
+  .abilities-main {
+    padding-top: 34px;
+  }
+
+  .abilities-selector {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ability-profile-header,
+  .ability-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .ability-card:last-child {
+    grid-column: auto;
+  }
+
+  .ability-portrait {
+    height: min(90vw, 400px);
+  }
+
+  .abilities-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@keyframes ability-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ability-card {
+    animation-duration: 0.01ms;
+    transition-duration: 0.01ms;
+  }
+}
