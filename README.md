@@ -15,8 +15,10 @@ styling zijn zelfstandig geschreven; dit zijn geen officiële EA-pagina’s.
   `/abilities/?legend=octane`.
 - Zoek in de roster op naam, rol of klasse en filter op klasse.
 - Selecteer een Legend om de afbeelding, inhoud en accentkleur te wijzigen.
+- Gebruik de toegankelijke mobiele route-navigatie met toetsenbord- en Escape-bediening.
 - Bekijk `/official-inspired/` met gamefuncties, een lazy-loaded gameplayvideo,
-  Legends, maps en links naar officieel nieuws.
+  Legends, een abilities-preview, maps, actuele links naar officieel nieuws en
+  geverifieerde store-links.
 - Navigeer tussen de showcase en de tweede pagina.
 - Responsive layouts voor desktop en mobiel, gelaagde afbeeldingen, subtiele
   overgangen, toetsenbordfocus en ondersteuning voor verminderde beweging.
@@ -29,6 +31,15 @@ styling zijn zelfstandig geschreven; dit zijn geen officiële EA-pagina’s.
 - SCSS voor layouts, afbeeldingslagen, overgangen en responsive styling.
 
 Er wordt geen React, Tailwind of ander groot framework gebruikt.
+
+## Pagina's en routes
+
+- `/` — interactieve Legend Showcase met alle 28 Legends, klassefilters,
+  zoekfunctie en character-renders.
+- `/abilities/` — overzicht van alle 84 passive, tactical en ultimate abilities;
+  `?legend=octane` opent direct een Legend.
+- `/official-inspired/` — fan-made game-overview met Legends, abilities-preview,
+  maps, nieuws en officiële downloadbestemmingen.
 
 ## Typografie
 
