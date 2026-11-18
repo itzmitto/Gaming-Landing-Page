@@ -105,6 +105,12 @@
 
 .abilities-footer p {
   max-width: 540px;
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 
 .abilities-footer a {

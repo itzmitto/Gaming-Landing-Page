@@ -78,7 +78,12 @@ export function renderAbilities(app: HTMLDivElement): void {
           <header class="ability-profile-header">
             <div class="ability-portrait">
               <div class="ability-portrait-backdrop" aria-hidden="true"></div>
-              <img id="ability-portrait" alt="" fetchpriority="high" />
+              <img
+                id="ability-portrait"
+                alt=""
+                fetchpriority="high"
+                decoding="async"
+              />
               <span id="ability-portrait-index" class="ability-portrait-index"></span>
             </div>
             <div class="ability-identity">
@@ -92,6 +97,7 @@ export function renderAbilities(app: HTMLDivElement): void {
             id="ability-cards"
             class="ability-cards"
             aria-label="Selected Legend abilities"
+            aria-live="polite"
           ></div>
           <a id="ability-source" class="ability-source" target="_blank" rel="noreferrer">
             View official Legend profile <span aria-hidden="true">↗</span>
@@ -103,6 +109,13 @@ export function renderAbilities(app: HTMLDivElement): void {
         <p>
           This project is not endorsed by or affiliated with EA or its licensors.
           Ability information is summarized from EA’s public guide.
+          <a
+            href="https://help.ea.com/en/articles/apex-legends/abilities/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Read the EA ability guide <span aria-hidden="true">↗</span>
+          </a>
         </p>
         <a href="/">Return to the Legend Showcase ↑</a>
       </footer>

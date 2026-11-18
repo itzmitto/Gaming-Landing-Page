@@ -10,6 +10,9 @@ styling zijn zelfstandig geschreven; dit zijn geen officiële EA-pagina’s.
 
 - Bekijk alle 28 Legends uit de Characters Hub van EA, inclusief klasse, rol,
   korte beschrijving en tactical, passive en ultimate abilities.
+- Open `/abilities/` voor de complete ability-kaarten en selecteer een Legend;
+  een specifieke selectie is direct te openen met bijvoorbeeld
+  `/abilities/?legend=octane`.
 - Zoek in de roster op naam, rol of klasse en filter op klasse.
 - Selecteer een Legend om de afbeelding, inhoud en accentkleur te wijzigen.
 - Bekijk `/official-inspired/` met gamefuncties, een lazy-loaded gameplayvideo,
@@ -53,10 +56,13 @@ en valt onder de SIL Open Font License 1.1. De licentie staat bij
 │   │   ├── legends.ts          # Centrale, gesorteerde Legend-lijst
 │   │   └── types.ts            # Types voor Legends en abilities
 │   ├── pages/
+│   │   ├── abilities.ts       # Ability-overzicht en Legend-selector
 │   │   ├── showcase.ts         # Showcase en interactieve selector
 │   │   └── officialInspired.ts # Tweede fan-made pagina
 │   ├── styles/
 │   │   ├── _animations.scss
+│   │   ├── _abilities.scss
+│   │   ├── _abilities-cards.scss
 │   │   ├── _hero.scss
 │   │   ├── _navigation.scss
 │   │   ├── _official.scss
@@ -131,6 +137,10 @@ eigendom van de respectieve rechthebbenden.
 De officiële ability-namen en beschrijvingen zijn gecontroleerd aan de hand van
 EA's [Legend abilities-gids](https://help.ea.com/en/articles/apex-legends/abilities/)
 en de individuele karakterpagina's in de Characters Hub.
+De geraadpleegde EA-pagina's boden geen openbare ability-iconen aan als
+downloadbare bestanden. Daarom gebruikt het ability-overzicht de echte lokale
+character-renders en tekstkaarten; er zijn geen nepiconen of SVG-placeholders
+gemaakt.
 
 ## Lokaal installeren en starten
 
