@@ -253,8 +253,11 @@ export function renderShowcase(app: HTMLDivElement): void {
   classFilter.addEventListener('change', renderOptions);
   window.addEventListener('popstate', () => {
     const id = new URLSearchParams(window.location.search).get('legend');
-    const legend = legends.find((item) => item.id === id);
-    if (legend) renderLegend(legend, false);
+    const legend =
+      legends.find((item) => item.id === id) ??
+      legends.find((item) => item.id === 'bloodhound') ??
+      legends[0];
+    renderLegend(legend, false);
   });
   renderOptions();
   renderLegend(selectedLegend, false);
